@@ -188,7 +188,7 @@ class RestContext extends BaseContext
         foreach ($headers as $name => $value) {
             $text .= $name . ': '. $this->getHttpHeader($name) . "\n";
         }
-        $this->printDebug($text);
+        echo $text;
     }
 
 
@@ -216,9 +216,7 @@ class RestContext extends BaseContext
             $data = " --data '$query'" ;
         }
 
-        $command = "curl -X $method$data$headers '$url'";
-
-        $this->printDebug($command);
+        echo "curl -X $method$data$headers '$url'";
     }
 
     private function getHttpHeader($name)
